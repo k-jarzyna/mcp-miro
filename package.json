@@ -1,0 +1,28 @@
+{
+  "name": "@k-jarzyna/mcp-miro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf build/",
+    "prebuild": "npm run clean"
+  },
+  "keywords": [],
+  "author": "Konrad Jarzyna",
+  "license": "Apache-2.0",
+  "description": "Miro integration for Model Context Protocol",
+  "dependencies": {
+    "@mirohq/miro-api": "^2.2.4",
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^5.8.2"
+  },
+  "files": [
+    "build"
+  ]
+}

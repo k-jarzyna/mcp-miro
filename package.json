@@ -1,7 +1,7 @@
 {
   "name": "@k-jarzyna/mcp-miro",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",

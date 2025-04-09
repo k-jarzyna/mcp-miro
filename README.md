@@ -40,15 +40,18 @@ Model Context Protocol (MCP) server integrating with the [Miro](https://miro.com
 
 ```json
 {
-  "mcpServers": {
-    "miro": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp/build/index.js"],
-      "env": {
-        "MIRO_ACCESS_TOKEN": "your_miro_access_token"
+   "mcpServers":{
+      "miro":{
+         "command":"npx",
+         "args":[
+            "-y",
+            "@k-jarzyna/mcp-miro"
+         ],
+         "env":{
+            "MIRO_ACCESS_TOKEN":"your_miro_access_token"
+         }
       }
-    }
-  }
+   }
 }
 ```
 

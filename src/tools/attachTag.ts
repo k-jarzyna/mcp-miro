@@ -25,7 +25,7 @@ const attachTagTool: ToolSchema = {
         return ServerResponse.error("Item ID is required");
       }
 
-      await MiroClient.getApi().attachTagToItem(boardId, tagId, itemId);
+      await MiroClient.getApi().attachTagToItem(boardId, itemId, tagId);
       return ServerResponse.text(JSON.stringify({ success: true, message: "Tag attached successfully" }, null, 2));
     } catch (error) {
       return ServerResponse.error(error);

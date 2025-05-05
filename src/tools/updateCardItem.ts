@@ -24,11 +24,11 @@ const updateCardItemTool: ToolSchema = {
     }).optional().describe("Updated position of the card on the board"),
     geometry: z.object({
       width: z.number().optional().describe("Updated width of the card"),
-      height: z.number().optional().describe("Updated height of the card")
+      height: z.number().optional().describe("Updated height of the card"),
+      rotation: z.number().optional().describe("Updated rotation angle of the card")
     }).optional().describe("Updated dimensions of the card"),
     style: z.object({
-      fillColor: z.string().optional().describe("Updated fill color of the card"),
-      textColor: z.string().optional().describe("Updated color of the text on the card")
+      cardTheme: z.string().optional().describe("Updated color of the card")
     }).optional().describe("Updated style configuration of the card")
   },
   fn: async ({ boardId, itemId, data, position, geometry, style }) => {

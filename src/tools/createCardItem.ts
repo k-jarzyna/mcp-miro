@@ -23,11 +23,11 @@ const createCardItemTool: ToolSchema = {
     }).describe("Position of the card on the board"),
     geometry: z.object({
       width: z.number().optional().describe("Width of the card"),
-      height: z.number().optional().describe("Height of the card")
+      height: z.number().optional().describe("Height of the card"),
+      rotation: z.number().optional().describe("Rotation angle of the card")
     }).optional().describe("Dimensions of the card"),
     style: z.object({
-      fillColor: z.string().optional().describe("Fill color of the card"),
-      textColor: z.string().optional().describe("Color of the text on the card")
+      cardTheme: z.string().optional().describe("Color of the card")
     }).optional().describe("Style configuration of the card")
   },
   fn: async ({ boardId, data, position, geometry, style }) => {

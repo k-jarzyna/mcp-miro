@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf build/",
+    "clean": "rimraf build/", 
     "prebuild": "npm run clean",
-    "postbuild": "chmod +x build/index.js"
+    "postbuild": "shx chmod +x build/index.js"
   },
   "bin": {
     "mcp-miro": "build/index.js"
@@ -24,7 +24,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "rimraf": "^5.0.5",
+    "shx": "^0.3.4"
   },
   "repository": {
     "type": "git",

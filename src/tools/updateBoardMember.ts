@@ -9,8 +9,8 @@ const updateBoardMemberTool: ToolSchema = {
   args: {
     boardId: z.string().describe("ID of the board"),
     memberId: z.string().describe("ID of the board member to update"),
-    role: z.enum(['member', 'admin', 'owner']).optional().describe("New role for the board member"),
-    status: z.enum(['active', 'pending', 'blocked']).optional().describe("New status for the board member")
+    role: z.enum(['member', 'admin', 'owner']).optional().nullable().describe("New role for the board member"),
+    status: z.enum(['active', 'pending', 'blocked']).optional().nullable().describe("New status for the board member")
   },
   fn: async ({ boardId, memberId, role, status }) => {
     try {

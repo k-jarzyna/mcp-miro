@@ -9,7 +9,7 @@ const ungroupItemsTool: ToolSchema = {
   args: {
     boardId: z.string().describe("ID of the board that contains the group"),
     groupId: z.string().describe("ID of the group that you want to ungroup"),
-    deleteItems: z.boolean().optional().describe("Indicates whether the items should be removed. By default, false.")
+    deleteItems: z.boolean().optional().nullable().describe("Indicates whether the items should be removed. By default, false.")
   },
   fn: async ({ boardId, groupId, deleteItems }) => {
     try {

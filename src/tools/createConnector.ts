@@ -17,12 +17,12 @@ const createConnectorTool: ToolSchema = {
       id: z.string().describe("ID of the item at the end of the connector") 
     }).describe("End item of the connector"),
     style: z.object({
-      strokeColor: z.string().optional().describe("Color of the connector stroke"),
-      strokeWidth: z.number().optional().describe("Width of the connector stroke"),
-      strokeStyle: z.string().optional().describe("Style of the connector stroke (normal, dashed, etc.)"),
-      startStrokeCap: z.string().optional().describe("Start stroke cap style"),
-      endStrokeCap: z.string().optional().describe("End stroke cap style")
-    }).optional().describe("Style configuration of the connector")
+      strokeColor: z.string().optional().nullable().describe("Color of the connector stroke"),
+      strokeWidth: z.number().optional().nullable().describe("Width of the connector stroke"),
+      strokeStyle: z.string().optional().nullable().describe("Style of the connector stroke (normal, dashed, etc.)"),
+      startStrokeCap: z.string().optional().nullable().describe("Start stroke cap style"),
+      endStrokeCap: z.string().optional().nullable().describe("End stroke cap style")
+    }).optional().nullable().describe("Style configuration of the connector")
   },
   fn: async ({ boardId, startItem, endItem, style }) => {
     try {

@@ -12,17 +12,17 @@ const updateDocumentItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board that contains the document"),
     itemId: z.string().describe("Unique identifier (ID) of the document that you want to update"),
     data: z.object({
-      url: z.string().optional().describe("Updated URL of the document"),
-      title: z.string().optional().describe("Updated title of the document")
-    }).optional().describe("The updated content and configuration of the document"),
+      url: z.string().optional().nullable().describe("Updated URL of the document"),
+      title: z.string().optional().nullable().describe("Updated title of the document")
+    }).optional().nullable().describe("The updated content and configuration of the document"),
     position: z.object({
-      x: z.number().optional().describe("Updated X coordinate of the document"),
-      y: z.number().optional().describe("Updated Y coordinate of the document")
-    }).optional().describe("Updated position of the document on the board"),
+      x: z.number().optional().nullable().describe("Updated X coordinate of the document"),
+      y: z.number().optional().nullable().describe("Updated Y coordinate of the document")
+    }).optional().nullable().describe("Updated position of the document on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Updated width of the document"),
-      height: z.number().optional().describe("Updated height of the document")
-    }).optional().describe("Updated dimensions of the document")
+      width: z.number().optional().nullable().describe("Updated width of the document"),
+      height: z.number().optional().nullable().describe("Updated height of the document")
+    }).optional().nullable().describe("Updated dimensions of the document")
   },
   fn: async ({ boardId, itemId, data, position, geometry }) => {
     try {

@@ -26,22 +26,22 @@ const createStickyNoteItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where the sticky note will be created"),
     data: z.object({
       content: z.string().describe("Text content of the sticky note"),
-      shape: z.string().optional().describe("Shape of the sticky note (square, rectangle, circle, triangle, rhombus)")
+      shape: z.string().optional().nullable().describe("Shape of the sticky note (square, rectangle, circle, triangle, rhombus)")
     }).describe("The content and configuration of the sticky note"),
     position: z.object({
       x: z.number().describe("X coordinate of the sticky note"),
       y: z.number().describe("Y coordinate of the sticky note"),
-      origin: z.string().optional().describe("Origin of the sticky note (center, top-left, etc.)"),
-      relativeTo: z.string().optional().describe("Reference point (canvas_center, etc.)")
+      origin: z.string().optional().nullable().describe("Origin of the sticky note (center, top-left, etc.)"),
+      relativeTo: z.string().optional().nullable().describe("Reference point (canvas_center, etc.)")
     }).describe("Position of the sticky note on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Width of the sticky note"),
-      height: z.number().optional().describe("Height of the sticky note")
-    }).optional().describe("Dimensions of the sticky note"),
+      width: z.number().optional().nullable().describe("Width of the sticky note"),
+      height: z.number().optional().nullable().describe("Height of the sticky note")
+    }).optional().nullable().describe("Dimensions of the sticky note"),
     style: z.object({
-      fillColor: z.string().optional().describe("Fill color of the sticky note (use predefined values like 'light_yellow', 'light_green', etc.)"),
-      textAlign: z.string().optional().describe("Alignment of the text (left, center, right)")
-    }).optional().describe("Style configuration of the sticky note")
+      fillColor: z.string().optional().nullable().describe("Fill color of the sticky note (use predefined values like 'light_yellow', 'light_green', etc.)"),
+      textAlign: z.string().optional().nullable().describe("Alignment of the text (left, center, right)")
+    }).optional().nullable().describe("Style configuration of the sticky note")
   },
   fn: async ({ boardId, data, position, geometry, style }) => {
     try {

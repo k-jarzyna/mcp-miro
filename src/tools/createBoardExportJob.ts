@@ -10,7 +10,7 @@ const createBoardExportJobTool: ToolSchema = {
     orgId: z.string().describe("Unique identifier of the organization"),
     requestId: z.string().describe("Unique identifier of the board export job"),
     boardIds: z.array(z.string()).describe("Array of board IDs to export"),
-    format: z.enum(["pdf", "csv"]).optional().describe("Export format (default: pdf)")
+    format: z.enum(["pdf", "csv"]).optional().nullable().describe("Export format (default: pdf)")
   },
   fn: async ({ orgId, requestId, boardIds, format }) => {
     try {

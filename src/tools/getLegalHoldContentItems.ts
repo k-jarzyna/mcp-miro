@@ -11,7 +11,7 @@ const getLegalHoldContentItemsTool: ToolSchema = {
     caseId: z.string().describe("The ID of the case for which you want to retrieve the list of content items under hold"),
     legalHoldId: z.string().describe("The ID of the legal hold for which you want to retrieve the list of content items under hold"),
     limit: z.number().describe("The maximum number of items in the result list"),
-    cursor: z.string().optional().describe("Cursor for pagination")
+    cursor: z.string().optional().nullable().describe("Cursor for pagination")
   },
   fn: async ({ orgId, caseId, legalHoldId, limit, cursor }) => {
     try {

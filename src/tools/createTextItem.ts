@@ -19,13 +19,13 @@ const createTextItemTool: ToolSchema = {
       y: z.number().describe("Y coordinate of the text item")
     }).describe("Position of the text item on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Width of the text item")
-    }).optional().describe("Dimensions of the text item"),
+      width: z.number().optional().nullable().describe("Width of the text item")
+    }).optional().nullable().describe("Dimensions of the text item"),
     style: z.object({
-      color: z.string().optional().describe("Color of the text"),
-      fontSize: z.number().optional().describe("Font size of the text"),
-      textAlign: z.string().optional().describe("Alignment of the text (left, center, right)")
-    }).optional().describe("Style configuration of the text item")
+      color: z.string().optional().nullable().describe("Color of the text"),
+      fontSize: z.number().optional().nullable().describe("Font size of the text"),
+      textAlign: z.string().optional().nullable().describe("Alignment of the text (left, center, right)")
+    }).optional().nullable().describe("Style configuration of the text item")
   },
   fn: async ({ boardId, data, position, geometry, style }) => {
     try {

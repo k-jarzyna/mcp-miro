@@ -13,23 +13,23 @@ const createAppCardItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where the app card will be created"),
     data: z.object({
       title: z.string().describe("Title of the app card"),
-      description: z.string().optional().describe("Description of the app card"),
-      status: z.string().optional().describe("Status text of the app card"),
+      description: z.string().optional().nullable().describe("Description of the app card"),
+      status: z.string().optional().nullable().describe("Status text of the app card"),
       fields: z.array(z.object({
         value: z.string().describe("Value of the field"),
-        iconShape: z.string().optional().describe("Shape of the icon"),
-        fillColor: z.string().optional().describe("Fill color of the field"),
-        textColor: z.string().optional().describe("Color of the text"),
-      })).optional().describe("Custom fields to display on the app card")
+        iconShape: z.string().optional().nullable().describe("Shape of the icon"),
+        fillColor: z.string().optional().nullable().describe("Fill color of the field"),
+        textColor: z.string().optional().nullable().describe("Color of the text"),
+      })).optional().nullable().describe("Custom fields to display on the app card")
     }).describe("The content and configuration of the app card"),
     position: z.object({
       x: z.number().describe("X coordinate of the app card"),
       y: z.number().describe("Y coordinate of the app card")
     }).describe("Position of the app card on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Width of the app card"),
-      height: z.number().optional().describe("Height of the app card")
-    }).optional().describe("Dimensions of the app card")
+      width: z.number().optional().nullable().describe("Width of the app card"),
+      height: z.number().optional().nullable().describe("Height of the app card")
+    }).optional().nullable().describe("Dimensions of the app card")
   },
   fn: async ({boardId, data, position, geometry}) => {
     try {

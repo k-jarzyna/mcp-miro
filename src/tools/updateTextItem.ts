@@ -12,20 +12,20 @@ const updateTextItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board that contains the text item"),
     itemId: z.string().describe("Unique identifier (ID) of the text item that you want to update"),
     data: z.object({
-      content: z.string().optional().describe("Updated text content of the text item")
-    }).optional().describe("The updated content of the text item"),
+      content: z.string().optional().nullable().describe("Updated text content of the text item")
+    }).optional().nullable().describe("The updated content of the text item"),
     position: z.object({
-      x: z.number().optional().describe("Updated X coordinate of the text item"),
-      y: z.number().optional().describe("Updated Y coordinate of the text item")
-    }).optional().describe("Updated position of the text item on the board"),
+      x: z.number().optional().nullable().describe("Updated X coordinate of the text item"),
+      y: z.number().optional().nullable().describe("Updated Y coordinate of the text item")
+    }).optional().nullable().describe("Updated position of the text item on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Updated width of the text item")
-    }).optional().describe("Updated dimensions of the text item"),
+      width: z.number().optional().nullable().describe("Updated width of the text item")
+    }).optional().nullable().describe("Updated dimensions of the text item"),
     style: z.object({
-      color: z.string().optional().describe("Updated color of the text"),
-      fontSize: z.number().optional().describe("Updated font size of the text"),
-      textAlign: z.string().optional().describe("Updated alignment of the text (left, center, right)")
-    }).optional().describe("Updated style configuration of the text item")
+      color: z.string().optional().nullable().describe("Updated color of the text"),
+      fontSize: z.number().optional().nullable().describe("Updated font size of the text"),
+      textAlign: z.string().optional().nullable().describe("Updated alignment of the text (left, center, right)")
+    }).optional().nullable().describe("Updated style configuration of the text item")
   },
   fn: async ({ boardId, itemId, data, position, geometry, style }) => {
     try {

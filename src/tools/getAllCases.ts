@@ -9,7 +9,7 @@ const getAllCasesTool: ToolSchema = {
   args: {
     limit: z.number().describe("The maximum number of items in the result list"),
     orgId: z.string().describe("The ID of the organization for which you want to retrieve the list of cases"),
-    cursor: z.string().optional().describe("Cursor for pagination")
+    cursor: z.string().optional().nullable().describe("Cursor for pagination")
   },
   fn: async ({ limit, orgId, cursor }) => {
     try {

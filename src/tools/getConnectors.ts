@@ -8,8 +8,8 @@ const getConnectorsTool: ToolSchema = {
   description: "Retrieve all connectors on a specific Miro board",
   args: {
     boardId: z.string().describe("Unique identifier (ID) of the board whose connectors you want to retrieve"),
-    limit: z.number().optional().describe("Maximum number of connectors to return (default: 50)"),
-    cursor: z.string().optional().describe("Cursor for pagination")
+    limit: z.number().optional().nullable().describe("Maximum number of connectors to return (default: 50)"),
+    cursor: z.string().optional().nullable().describe("Cursor for pagination")
   },
   fn: async ({ boardId, limit, cursor }) => {
     try {

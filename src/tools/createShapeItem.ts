@@ -15,7 +15,7 @@ const createShapeItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where the shape will be created"),
     data: z.object({
       shape: z.string().describe("Type of the shape (rectangle, circle, triangle, etc.)"),
-      content: z.string().optional().describe("Text content to display inside the shape")
+      content: z.string().optional().nullable().describe("Text content to display inside the shape")
     }).describe("The content and configuration of the shape"),
     position: z.object({
       x: z.number().describe("X coordinate of the shape"),
@@ -24,17 +24,17 @@ const createShapeItemTool: ToolSchema = {
     geometry: z.object({
       width: z.number().describe("Width of the shape"),
       height: z.number().describe("Height of the shape"),
-      rotation: z.number().optional().describe("Rotation angle of the shape")
+      rotation: z.number().optional().nullable().describe("Rotation angle of the shape")
     }).describe("Dimensions of the shape"),
     style: z.object({
-      borderColor: z.string().optional().describe("Color of the shape border (hex format, e.g. #000000)"),
-      borderWidth: z.number().optional().describe("Width of the shape border"),
-      borderStyle: z.string().optional().describe("Style of the shape border (normal, dashed, etc.)"),
-      borderOpacity: z.number().optional().describe("Opacity of the shape border (0-1)"),
-      fillColor: z.string().optional().describe("Fill color of the shape (hex format, e.g. #000000)"),
-      fillOpacity: z.number().optional().describe("Opacity of the shape fill (0-1)"),
-      color: z.string().optional().describe("Color of the text in the shape (hex format, e.g. #000000)")
-    }).optional().describe("Style configuration of the shape")
+      borderColor: z.string().optional().nullable().describe("Color of the shape border (hex format, e.g. #000000)"),
+      borderWidth: z.number().optional().nullable().describe("Width of the shape border"),
+      borderStyle: z.string().optional().nullable().describe("Style of the shape border (normal, dashed, etc.)"),
+      borderOpacity: z.number().optional().nullable().describe("Opacity of the shape border (0-1)"),
+      fillColor: z.string().optional().nullable().describe("Fill color of the shape (hex format, e.g. #000000)"),
+      fillOpacity: z.number().optional().nullable().describe("Opacity of the shape fill (0-1)"),
+      color: z.string().optional().nullable().describe("Color of the text in the shape (hex format, e.g. #000000)")
+    }).optional().nullable().describe("Style configuration of the shape")
   },
   fn: async ({ boardId, data, position, geometry, style }) => {
     try {

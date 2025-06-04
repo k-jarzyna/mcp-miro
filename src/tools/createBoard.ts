@@ -8,9 +8,9 @@ const createBoardTool: ToolSchema = {
   description: "Create a new Miro board with specified name and sharing policies",
   args: {
     name: z.string().describe("Name of the board to create"),
-    description: z.string().optional().describe("Description of the board"),
-    sharingPolicy: z.enum(['private', 'view', 'comment', 'edit']).optional().describe("Sharing policy for the board"),
-    teamId: z.string().optional().describe("Team ID to assign the board to")
+    description: z.string().optional().nullable().describe("Description of the board"),
+    sharingPolicy: z.enum(['private', 'view', 'comment', 'edit']).optional().nullable().describe("Sharing policy for the board"),
+    teamId: z.string().optional().nullable().describe("Team ID to assign the board to")
   },
   fn: async ({ name, description, sharingPolicy, teamId }) => {
     try {

@@ -13,17 +13,17 @@ const updateConnectorTool: ToolSchema = {
     connectorId: z.string().describe("Unique identifier (ID) of the connector that you want to update"),
     startItem: z.object({
       id: z.string().describe("ID of the item at the start of the connector")
-    }).optional().describe("Start item of the connector"),
+    }).optional().nullable().describe("Start item of the connector"),
     endItem: z.object({
       id: z.string().describe("ID of the item at the end of the connector")
-    }).optional().describe("End item of the connector"),
+    }).optional().nullable().describe("End item of the connector"),
     style: z.object({
-      strokeColor: z.string().optional().describe("Updated color of the connector stroke"),
-      strokeWidth: z.number().optional().describe("Updated width of the connector stroke"),
-      strokeStyle: z.string().optional().describe("Updated style of the connector stroke (normal, dashed, etc.)"),
-      startStrokeCap: z.string().optional().describe("Updated start stroke cap style"),
-      endStrokeCap: z.string().optional().describe("Updated end stroke cap style")
-    }).optional().describe("Updated style configuration of the connector")
+      strokeColor: z.string().optional().nullable().describe("Updated color of the connector stroke"),
+      strokeWidth: z.number().optional().nullable().describe("Updated width of the connector stroke"),
+      strokeStyle: z.string().optional().nullable().describe("Updated style of the connector stroke (normal, dashed, etc.)"),
+      startStrokeCap: z.string().optional().nullable().describe("Updated start stroke cap style"),
+      endStrokeCap: z.string().optional().nullable().describe("Updated end stroke cap style")
+    }).optional().nullable().describe("Updated style configuration of the connector")
   },
   fn: async ({ boardId, connectorId, startItem, endItem, style }) => {
     try {

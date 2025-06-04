@@ -13,7 +13,7 @@ const createTagTool: ToolSchema = {
     data: z.object({
       title: z.string().describe("Title of the tag")
     }).describe("The content and configuration of the tag"),
-    fillColor: z.string().optional().describe("Fill color of the tag (hex format, e.g. #000000)")
+    fillColor: z.string().optional().nullable().describe("Fill color of the tag (hex format, e.g. #000000)")
   },
   fn: async ({ boardId, data, fillColor }) => {
     try {

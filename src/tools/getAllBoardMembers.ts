@@ -8,8 +8,8 @@ const getAllBoardMembersTool: ToolSchema = {
   description: "Retrieve all members of a specific Miro board",
   args: {
     boardId: z.string().describe("ID of the board to retrieve members from"),
-    limit: z.number().optional().describe("Maximum number of members to retrieve (default: 50)"),
-    offset: z.number().optional().describe("Offset for pagination (default: 0)")
+    limit: z.number().optional().nullable().describe("Maximum number of members to retrieve (default: 50)"),
+    offset: z.number().optional().nullable().describe("Offset for pagination (default: 0)")
   },
   fn: async ({ boardId, limit = 50, offset = 0 }) => {
     try {

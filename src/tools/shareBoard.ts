@@ -9,7 +9,7 @@ const shareBoardTool: ToolSchema = {
   args: {
     boardId: z.string().describe("ID of the board to share"),
     accessLevel: z.enum(['private', 'view', 'comment', 'edit']).describe("Access level for shared board"),
-    teamId: z.string().optional().describe("Team ID to assign the board to"),
+    teamId: z.string().optional().nullable().describe("Team ID to assign the board to"),
   },
   fn: async ({ boardId, accessLevel, teamId }) => {
     try {

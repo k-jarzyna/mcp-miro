@@ -10,7 +10,7 @@ const getLegalHoldsTool: ToolSchema = {
     limit: z.number().describe("The maximum number of items in the result list"),
     orgId: z.string().describe("The ID of the organization for which you want to retrieve the list of legal holds"),
     caseId: z.string().describe("The ID of the case for which you want to retrieve the list of legal holds"),
-    cursor: z.string().optional().describe("Cursor for pagination")
+    cursor: z.string().optional().nullable().describe("Cursor for pagination")
   },
   fn: async ({ limit, orgId, caseId, cursor }) => {
     try {

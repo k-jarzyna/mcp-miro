@@ -13,22 +13,22 @@ const createCardItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where the card will be created"),
     data: z.object({
       title: z.string().describe("Title of the card"),
-      description: z.string().optional().describe("Description of the card"),
-      assigneeId: z.string().optional().describe("User ID of the assignee"),
-      dueDate: z.string().optional().describe("Due date for the card (ISO 8601 format)")
+      description: z.string().optional().nullable().describe("Description of the card"),
+      assigneeId: z.string().optional().nullable().describe("User ID of the assignee"),
+      dueDate: z.string().optional().nullable().describe("Due date for the card (ISO 8601 format)")
     }).describe("The content and configuration of the card"),
     position: z.object({
       x: z.number().describe("X coordinate of the card"),
       y: z.number().describe("Y coordinate of the card")
     }).describe("Position of the card on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Width of the card"),
-      height: z.number().optional().describe("Height of the card"),
-      rotation: z.number().optional().describe("Rotation angle of the card")
-    }).optional().describe("Dimensions of the card"),
+      width: z.number().optional().nullable().describe("Width of the card"),
+      height: z.number().optional().nullable().describe("Height of the card"),
+      rotation: z.number().optional().nullable().describe("Rotation angle of the card")
+    }).optional().nullable().describe("Dimensions of the card"),
     style: z.object({
-      cardTheme: z.string().optional().describe("Color of the card")
-    }).optional().describe("Style configuration of the card")
+      cardTheme: z.string().optional().nullable().describe("Color of the card")
+    }).optional().nullable().describe("Style configuration of the card")
   },
   fn: async ({ boardId, data, position, geometry, style }) => {
     try {

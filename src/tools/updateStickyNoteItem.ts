@@ -26,24 +26,24 @@ const updateStickyNoteItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board that contains the sticky note"),
     itemId: z.string().describe("Unique identifier (ID) of the sticky note that you want to update"),
     data: z.object({
-      content: z.string().optional().describe("Updated text content of the sticky note"),
-      shape: z.string().optional().describe("Updated shape of the sticky note (square, rectangle, circle, triangle, rhombus)")
-    }).optional().describe("Updated content and configuration of the sticky note"),
+      content: z.string().optional().nullable().describe("Updated text content of the sticky note"),
+      shape: z.string().optional().nullable().describe("Updated shape of the sticky note (square, rectangle, circle, triangle, rhombus)")
+    }).optional().nullable().describe("Updated content and configuration of the sticky note"),
     position: z.object({
-      x: z.number().optional().describe("Updated X coordinate of the sticky note"),
-      y: z.number().optional().describe("Updated Y coordinate of the sticky note"),
-      origin: z.string().optional().describe("Origin of the sticky note (center, top-left, etc.)"),
-      relativeTo: z.string().optional().describe("Reference point (canvas_center, etc.)")
-    }).optional().describe("Updated position of the sticky note on the board"),
+      x: z.number().optional().nullable().describe("Updated X coordinate of the sticky note"),
+      y: z.number().optional().nullable().describe("Updated Y coordinate of the sticky note"),
+      origin: z.string().optional().nullable().describe("Origin of the sticky note (center, top-left, etc.)"),
+      relativeTo: z.string().optional().nullable().describe("Reference point (canvas_center, etc.)")
+    }).optional().nullable().describe("Updated position of the sticky note on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Updated width of the sticky note"),
-      height: z.number().optional().describe("Updated height of the sticky note")
-    }).optional().describe("Updated dimensions of the sticky note"),
+      width: z.number().optional().nullable().describe("Updated width of the sticky note"),
+      height: z.number().optional().nullable().describe("Updated height of the sticky note")
+    }).optional().nullable().describe("Updated dimensions of the sticky note"),
     style: z.object({
-      fillColor: z.string().optional().describe("Updated fill color of the sticky note (use predefined values)"),
-      textAlign: z.string().optional().describe("Updated alignment of the text (left, center, right)"),
-      textColor: z.string().optional().describe("Updated color of the text on the sticky note")
-    }).optional().describe("Updated style configuration of the sticky note")
+      fillColor: z.string().optional().nullable().describe("Updated fill color of the sticky note (use predefined values)"),
+      textAlign: z.string().optional().nullable().describe("Updated alignment of the text (left, center, right)"),
+      textColor: z.string().optional().nullable().describe("Updated color of the text on the sticky note")
+    }).optional().nullable().describe("Updated style configuration of the sticky note")
   },
   fn: async ({ boardId, itemId, data, position, geometry, style }) => {
     try {

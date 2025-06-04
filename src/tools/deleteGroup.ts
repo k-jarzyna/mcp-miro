@@ -9,7 +9,7 @@ const deleteGroupTool: ToolSchema = {
   args: {
     boardId: z.string().describe("ID of the board that contains the group"),
     groupId: z.string().describe("ID of the group that you want to delete"),
-    deleteItems: z.boolean().optional().describe("Indicates whether the items should be removed. Set to true to delete items in the group, false to keep them")
+    deleteItems: z.boolean().optional().nullable().describe("Indicates whether the items should be removed. Set to true to delete items in the group, false to keep them")
   },
   fn: async ({ boardId, groupId, deleteItems }) => {
     try {

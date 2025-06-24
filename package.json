@@ -7,10 +7,10 @@
     "build": "tsc",
     "clean": "rimraf build/", 
     "prebuild": "npm run clean",
-    "postbuild": "shx chmod +x build/index.js"
+    "postbuild": "shx chmod +x build/index.js cli.cjs"
   },
   "bin": {
-    "mcp-miro": "build/index.js"
+    "mcp-miro": "cli.cjs"
   },
   "keywords": [],
   "author": "Konrad Jarzyna",
@@ -33,7 +33,8 @@
     "url": "https://github.com/k-jarzyna/mcp-miro"
   },
   "files": [
-    "build"
+    "build",
+    "cli.cjs"
   ],
   "homepage": "https://github.com/k-jarzyna/mcp-miro"
 }

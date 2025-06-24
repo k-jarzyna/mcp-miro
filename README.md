@@ -192,6 +192,12 @@ npm run build
 To run the server:
 
 ```bash
+node cli.cjs
+```
+
+Alternatively, you can run the built JavaScript file directly:
+
+```bash
 node build/index.js
 ```
 

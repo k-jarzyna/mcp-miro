@@ -13,18 +13,18 @@ const createImageItemUsingUrlTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where the image will be created"),
     data: z.object({
       url: z.string().describe("URL of the image to be added to the board"),
-      title: z.string().optional().describe("Title of the image")
+      title: z.string().optional().nullish().describe("Title of the image")
     }).describe("The content and configuration of the image"),
     position: z.object({
       x: z.number().describe("X coordinate of the image"),
       y: z.number().describe("Y coordinate of the image"),
-      origin: z.string().optional().describe("Origin of the image (center, top-left, etc.)"),
-      relativeTo: z.string().optional().describe("Reference point (canvas_center, etc.)")
+      origin: z.string().optional().nullish().describe("Origin of the image (center, top-left, etc.)"),
+      relativeTo: z.string().optional().nullish().describe("Reference point (canvas_center, etc.)")
     }).describe("Position of the image on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Width of the image"),
-      height: z.number().optional().describe("Height of the image")
-    }).optional().describe("Dimensions of the image")
+      width: z.number().optional().nullish().describe("Width of the image"),
+      height: z.number().optional().nullish().describe("Height of the image")
+    }).optional().nullish().describe("Dimensions of the image")
   },
   fn: async ({ boardId, data, position, geometry }) => {
     try {

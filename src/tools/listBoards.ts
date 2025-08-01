@@ -7,8 +7,8 @@ const listBoardsTool: ToolSchema = {
   name: "list-boards",
   description: "List all available Miro boards",
   args: {
-    limit: z.number().optional().describe("Maximum number of boards to return (default: 50)"),
-    offset: z.number().optional().describe("Offset for pagination (default: 0)")
+    limit: z.number().optional().nullish().describe("Maximum number of boards to return (default: 50)"),
+    offset: z.number().optional().nullish().describe("Offset for pagination (default: 0)")
   },
   fn: async ({ limit = 50, offset = 0 }) => {
     try {

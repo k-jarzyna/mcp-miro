@@ -13,22 +13,22 @@ const updateFrameItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where you want to update the frame"),
     itemId: z.string().describe("Unique identifier (ID) of the frame that you want to update"),
     data: z.object({
-      title: z.string().optional().describe("Title of the frame. This title appears at the top of the frame."),
-      format: z.string().optional().describe("Format of the frame. Only 'custom' is supported currently."),
-      type: z.string().optional().describe("Type of the frame. Only 'freeform' is supported currently."),
-      showContent: z.boolean().optional().describe("Hide or reveal the content inside a frame (Enterprise plan only).")
-    }).optional().describe("The updated content and configuration of the frame"),
+      title: z.string().optional().nullish().describe("Title of the frame. This title appears at the top of the frame."),
+      format: z.string().optional().nullish().describe("Format of the frame. Only 'custom' is supported currently."),
+      type: z.string().optional().nullish().describe("Type of the frame. Only 'freeform' is supported currently."),
+      showContent: z.boolean().optional().nullish().describe("Hide or reveal the content inside a frame (Enterprise plan only).")
+    }).optional().nullish().describe("The updated content and configuration of the frame"),
     position: z.object({
       x: z.number().describe("X coordinate of the frame"),
       y: z.number().describe("Y coordinate of the frame")
-    }).optional().describe("Updated position of the frame on the board"),
+    }).optional().nullish().describe("Updated position of the frame on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Width of the frame"),
-      height: z.number().optional().describe("Height of the frame")
-    }).optional().describe("Updated dimensions of the frame"),
+      width: z.number().optional().nullish().describe("Width of the frame"),
+      height: z.number().optional().nullish().describe("Height of the frame")
+    }).optional().nullish().describe("Updated dimensions of the frame"),
     style: z.object({
-      fillColor: z.string().optional().describe("Fill color for the frame. Hex values like #f5f6f8, #d5f692, etc.")
-    }).optional().describe("Updated style configuration of the frame")
+      fillColor: z.string().optional().nullish().describe("Fill color for the frame. Hex values like #f5f6f8, #d5f692, etc.")
+    }).optional().nullish().describe("Updated style configuration of the frame")
   },
   fn: async ({ boardId, itemId, data, position, geometry, style }: {
     boardId: string,

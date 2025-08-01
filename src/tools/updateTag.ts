@@ -11,8 +11,8 @@ const updateTagTool: ToolSchema = {
   args: {
     boardId: z.string().describe("Unique identifier (ID) of the board that contains the tag"),
     tagId: z.string().describe("Unique identifier (ID) of the tag that you want to update"),
-    title: z.string().optional().describe("Updated title of the tag"),
-    fillColor: z.string().optional().describe("Updated fill color of the tag (hex format, e.g. #000000)")
+    title: z.string().optional().nullish().describe("Updated title of the tag"),
+    fillColor: z.string().optional().nullish().describe("Updated fill color of the tag (hex format, e.g. #000000)")
   },
   fn: async ({ boardId, tagId, title, fillColor }) => {
     try {

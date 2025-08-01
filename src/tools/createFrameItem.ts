@@ -12,22 +12,22 @@ const createFrameItemTool: ToolSchema = {
   args: {
     boardId: z.string().describe("Unique identifier (ID) of the board where the frame will be created"),
     data: z.object({
-      title: z.string().optional().describe("Title of the frame. This title appears at the top of the frame."),
-      format: z.string().optional().describe("Format of the frame. Only 'custom' is supported currently."),
-      type: z.string().optional().describe("Type of the frame. Only 'freeform' is supported currently."),
-      showContent: z.boolean().optional().describe("Hide or reveal the content inside a frame (Enterprise plan only).")
+      title: z.string().optional().nullish().describe("Title of the frame. This title appears at the top of the frame."),
+      format: z.string().optional().nullish().describe("Format of the frame. Only 'custom' is supported currently."),
+      type: z.string().optional().nullish().describe("Type of the frame. Only 'freeform' is supported currently."),
+      showContent: z.boolean().optional().nullish().describe("Hide or reveal the content inside a frame (Enterprise plan only).")
     }).describe("The content and configuration of the frame"),
     position: z.object({
       x: z.number().describe("X coordinate of the frame"),
       y: z.number().describe("Y coordinate of the frame")
     }).describe("Position of the frame on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Width of the frame"),
-      height: z.number().optional().describe("Height of the frame")
-    }).optional().describe("Dimensions of the frame"),
+      width: z.number().optional().nullish().describe("Width of the frame"),
+      height: z.number().optional().nullish().describe("Height of the frame")
+    }).optional().nullish().describe("Dimensions of the frame"),
     style: z.object({
-      fillColor: z.string().optional().describe("Fill color for the frame. Hex values like #f5f6f8, #d5f692, etc.")
-    }).optional().describe("Style configuration of the frame")
+      fillColor: z.string().optional().nullish().describe("Fill color for the frame. Hex values like #f5f6f8, #d5f692, etc.")
+    }).optional().nullish().describe("Style configuration of the frame")
   },
   fn: async ({ boardId, data, position, geometry, style }: {
     boardId: string,

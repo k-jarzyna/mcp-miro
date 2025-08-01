@@ -8,8 +8,8 @@ const getAllTagsTool: ToolSchema = {
   description: "Retrieve all tags on a Miro board",
   args: {
     boardId: z.string().describe("Unique identifier (ID) of the board for which you want to retrieve all tags"),
-    limit: z.number().optional().describe("Maximum number of tags to return (default: 50)"),
-    offset: z.number().optional().describe("Offset for pagination (default: 0)")
+    limit: z.number().optional().nullish().describe("Maximum number of tags to return (default: 50)"),
+    offset: z.number().optional().nullish().describe("Offset for pagination (default: 0)")
   },
   fn: async ({ boardId, limit, offset }) => {
     try {

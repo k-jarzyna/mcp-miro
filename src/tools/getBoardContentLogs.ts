@@ -10,11 +10,11 @@ const getBoardContentLogsTool: ToolSchema = {
     orgId: z.string().describe("Unique identifier of the organization"),
     from: z.string().describe("Start date for filtering (ISO 8601 format)"),
     to: z.string().describe("End date for filtering (ISO 8601 format)"),
-    boardIds: z.array(z.string()).optional().describe("List of board IDs to filter by"),
-    emails: z.array(z.string()).optional().describe("List of user emails to filter by"),
-    cursor: z.string().optional().describe("Cursor for pagination"),
-    limit: z.number().optional().describe("Maximum number of results to return"),
-    sorting: z.enum(["asc", "desc"]).optional().describe("Sort order for results")
+    boardIds: z.array(z.string()).optional().nullish().describe("List of board IDs to filter by"),
+    emails: z.array(z.string()).optional().nullish().describe("List of user emails to filter by"),
+    cursor: z.string().optional().nullish().describe("Cursor for pagination"),
+    limit: z.number().optional().nullish().describe("Maximum number of results to return"),
+    sorting: z.enum(["asc", "desc"]).optional().nullish().describe("Sort order for results")
   },
   fn: async ({ orgId, from, to, boardIds, emails, cursor, limit, sorting }) => {
     try {

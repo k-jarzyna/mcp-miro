@@ -1,5 +1,6 @@
 # MCP Miro Server
 
+[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/k-jarzyna/mcp-miro)](https://archestra.ai/mcp-catalog/k-jarzyna__mcp-miro)
 [![smithery badge](https://smithery.ai/badge/@k-jarzyna/mcp-miro)](https://smithery.ai/server/@k-jarzyna/mcp-miro)
 
 Model Context Protocol (MCP) server integrating with the [Miro](https://miro.com/) platform. It enables AI assistants (like Claude) to access Miro boards and manage their content through a standardized interface.

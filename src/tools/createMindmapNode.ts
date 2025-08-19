@@ -10,11 +10,11 @@ const createMindmapNodeTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where you want to create the node"),
     data: z.object({
       content: z.string().describe("Text content for the mind map node"),
-      parentId: z.string().optional().describe("ID of the parent node (if this is a child node)"),
+      parentId: z.string().optional().nullish().describe("ID of the parent node (if this is a child node)"),
       style: z.object({
-        fillColor: z.string().optional().describe("Fill color for the node"),
-        textColor: z.string().optional().describe("Text color for the node")
-      }).optional()
+        fillColor: z.string().optional().nullish().describe("Fill color for the node"),
+        textColor: z.string().optional().nullish().describe("Text color for the node")
+      }).optional().nullish()
     }).describe("The content and style configuration of the mind map node"),
     position: z.object({
       x: z.number().describe("X coordinate of the node"),

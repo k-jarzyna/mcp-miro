@@ -8,10 +8,10 @@ const updateBoardTool: ToolSchema = {
   description: "Update an existing Miro board with new settings",
   args: {
     boardId: z.string().describe("Unique identifier (ID) of the board that you want to update"),
-    name: z.string().optional().describe("New name for the board"),
-    description: z.string().optional().describe("New description for the board"),
-    sharingPolicy: z.enum(['private', 'view', 'comment', 'edit']).optional().describe("New sharing policy for the board"),
-    teamId: z.string().optional().describe("New team ID to assign the board to")
+    name: z.string().optional().nullish().describe("New name for the board"),
+    description: z.string().optional().nullish().describe("New description for the board"),
+    sharingPolicy: z.enum(['private', 'view', 'comment', 'edit']).optional().nullish().describe("New sharing policy for the board"),
+    teamId: z.string().optional().nullish().describe("New team ID to assign the board to")
   },
   fn: async ({ boardId, name, description, sharingPolicy, teamId }) => {
     try {

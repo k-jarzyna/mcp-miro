@@ -8,12 +8,12 @@ const getOrganizationMembersTool: ToolSchema = {
   description: "Retrieves a list of members for an organization (Enterprise only)",
   args: {
     orgId: z.string().describe("id of the organization"),
-    emails: z.string().optional().describe("Filter by comma-separated email addresses"),
-    role: z.enum(['organization_internal_admin', 'organization_internal_user', 'organization_external_user', 'organization_team_guest_user', 'unknown']).optional().describe("Filter by user role"),
-    license: z.enum(['full', 'occasional', 'free', 'free_restricted', 'full_trial', 'unknown']).optional().describe("Filter by license type"),
-    active: z.boolean().optional().describe("Filter by active status"),
-    cursor: z.string().optional().describe("Cursor for pagination"),
-    limit: z.number().optional().describe("Maximum number of results to return")
+    emails: z.string().optional().nullish().describe("Filter by comma-separated email addresses"),
+    role: z.enum(['organization_internal_admin', 'organization_internal_user', 'organization_external_user', 'organization_team_guest_user', 'unknown']).optional().nullish().describe("Filter by user role"),
+    license: z.enum(['full', 'occasional', 'free', 'free_restricted', 'full_trial', 'unknown']).optional().nullish().describe("Filter by license type"),
+    active: z.boolean().optional().nullish().describe("Filter by active status"),
+    cursor: z.string().optional().nullish().describe("Cursor for pagination"),
+    limit: z.number().optional().nullish().describe("Maximum number of results to return")
   },
   fn: async ({ orgId, emails, role, license, active, cursor, limit }) => {
     try {

@@ -13,23 +13,23 @@ const updateCardItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board that contains the card"),
     itemId: z.string().describe("Unique identifier (ID) of the card that you want to update"),
     data: z.object({
-      title: z.string().optional().describe("Updated title of the card"),
-      description: z.string().optional().describe("Updated description of the card"),
-      assigneeId: z.string().optional().describe("Updated user ID of the assignee"),
-      dueDate: z.string().optional().describe("Updated due date for the card (ISO 8601 format)")
-    }).optional().describe("The updated content and configuration of the card"),
+      title: z.string().optional().nullish().describe("Updated title of the card"),
+      description: z.string().optional().nullish().describe("Updated description of the card"),
+      assigneeId: z.string().optional().nullish().describe("Updated user ID of the assignee"),
+      dueDate: z.string().optional().nullish().describe("Updated due date for the card (ISO 8601 format)")
+    }).optional().nullish().describe("The updated content and configuration of the card"),
     position: z.object({
       x: z.number().describe("Updated X coordinate of the card"),
       y: z.number().describe("Updated Y coordinate of the card")
-    }).optional().describe("Updated position of the card on the board"),
+    }).optional().nullish().describe("Updated position of the card on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Updated width of the card"),
-      height: z.number().optional().describe("Updated height of the card"),
-      rotation: z.number().optional().describe("Updated rotation angle of the card")
-    }).optional().describe("Updated dimensions of the card"),
+      width: z.number().optional().nullish().describe("Updated width of the card"),
+      height: z.number().optional().nullish().describe("Updated height of the card"),
+      rotation: z.number().optional().nullish().describe("Updated rotation angle of the card")
+    }).optional().nullish().describe("Updated dimensions of the card"),
     style: z.object({
-      cardTheme: z.string().optional().describe("Updated color of the card")
-    }).optional().describe("Updated style configuration of the card")
+      cardTheme: z.string().optional().nullish().describe("Updated color of the card")
+    }).optional().nullish().describe("Updated style configuration of the card")
   },
   fn: async ({ boardId, itemId, data, position, geometry, style }) => {
     try {

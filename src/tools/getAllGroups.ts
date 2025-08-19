@@ -8,8 +8,8 @@ const getAllGroupsTool: ToolSchema = {
   description: "Retrieve all groups on a Miro board",
   args: {
     boardId: z.string().describe("ID of the board whose groups you want to retrieve"),
-    limit: z.number().optional().describe("Maximum number of groups to return (default: 50)"),
-    cursor: z.string().optional().describe("Cursor for pagination")
+    limit: z.number().optional().nullish().describe("Maximum number of groups to return (default: 50)"),
+    cursor: z.string().optional().nullish().describe("Cursor for pagination")
   },
   fn: async ({ boardId, limit, cursor }) => {
     try {

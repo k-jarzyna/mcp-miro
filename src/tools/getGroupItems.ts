@@ -9,8 +9,8 @@ const getGroupItemsTool: ToolSchema = {
   args: {
     boardId: z.string().describe("ID of the board that contains the group"),
     groupId: z.string().describe("ID of the group whose items you want to retrieve"),
-    limit: z.number().optional().describe("Maximum number of items to return (default: 50)"),
-    cursor: z.string().optional().describe("Cursor for pagination")
+    limit: z.number().optional().nullish().describe("Maximum number of items to return (default: 50)"),
+    cursor: z.string().optional().nullish().describe("Cursor for pagination")
   },
   fn: async ({ boardId, groupId, limit, cursor }) => {
     try {

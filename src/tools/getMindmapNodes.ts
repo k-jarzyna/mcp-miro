@@ -8,8 +8,8 @@ const getMindmapNodesTool: ToolSchema = {
   description: "Retrieve a list of mind map nodes on a Miro board",
   args: {
     boardId: z.string().describe("Unique identifier (ID) of the board from which you want to retrieve mind map nodes"),
-    limit: z.number().optional().describe("Maximum number of results to return (default: 50)"),
-    cursor: z.string().optional().describe("Cursor for pagination")
+    limit: z.number().optional().nullish().describe("Maximum number of results to return (default: 50)"),
+    cursor: z.string().optional().nullish().describe("Cursor for pagination")
   },
   fn: async ({ boardId, limit, cursor }) => {
     try {

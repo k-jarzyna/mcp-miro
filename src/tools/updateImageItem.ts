@@ -12,18 +12,18 @@ const updateImageItemTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board where you want to update the item"),
     itemId: z.string().describe("Unique identifier (ID) of the image that you want to update"),
     data: z.object({
-      title: z.string().optional().describe("Updated title of the image")
-    }).optional().describe("The updated content of the image"),
+      title: z.string().optional().nullish().describe("Updated title of the image")
+    }).optional().nullish().describe("The updated content of the image"),
     position: z.object({
-      x: z.number().optional().describe("Updated X coordinate of the image"),
-      y: z.number().optional().describe("Updated Y coordinate of the image"),
-      origin: z.string().optional().describe("Updated origin of the image (center, top-left, etc.)"),
-      relativeTo: z.string().optional().describe("Updated reference point (canvas_center, etc.)")
-    }).optional().describe("Updated position of the image on the board"),
+      x: z.number().optional().nullish().describe("Updated X coordinate of the image"),
+      y: z.number().optional().nullish().describe("Updated Y coordinate of the image"),
+      origin: z.string().optional().nullish().describe("Updated origin of the image (center, top-left, etc.)"),
+      relativeTo: z.string().optional().nullish().describe("Updated reference point (canvas_center, etc.)")
+    }).optional().nullish().describe("Updated position of the image on the board"),
     geometry: z.object({
-      width: z.number().optional().describe("Updated width of the image"),
-      height: z.number().optional().describe("Updated height of the image")
-    }).optional().describe("Updated dimensions of the image")
+      width: z.number().optional().nullish().describe("Updated width of the image"),
+      height: z.number().optional().nullish().describe("Updated height of the image")
+    }).optional().nullish().describe("Updated dimensions of the image")
   },
   fn: async ({ boardId, itemId, data, position, geometry }) => {
     try {

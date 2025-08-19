@@ -8,8 +8,8 @@ const getItemsOnBoardTool: ToolSchema = {
   description: "Retrieve all items on a specific Miro board",
   args: {
     boardId: z.string().describe("Unique identifier (ID) of the board whose items you want to retrieve"),
-    limit: z.number().optional().describe("Maximum number of items to return (default: 50)"),
-    offset: z.number().optional().describe("Offset for pagination (default: 0)")
+    limit: z.number().optional().nullish().describe("Maximum number of items to return (default: 50)"),
+    offset: z.number().optional().nullish().describe("Offset for pagination (default: 0)")
   },
   fn: async ({ boardId, limit = 50, offset = 0 }) => {
     try {

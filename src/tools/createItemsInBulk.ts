@@ -26,34 +26,34 @@ const stickyNoteSchema = z.object({
   type: z.literal('sticky_note'),
   data: z.object({
     content: z.string().describe("Text content of the sticky note"),
-    shape: z.enum(['square', 'rectangle']).optional().describe("Shape of the sticky note")
+    shape: z.enum(['square', 'rectangle']).optional().nullish().describe("Shape of the sticky note")
   }),
   position: z.object({
     x: z.number().describe("X coordinate"),
     y: z.number().describe("Y coordinate")
   }),
   style: z.object({
-    fillColor: z.string().optional().describe("Fill color of the sticky note"),
-    textAlign: z.enum(['left', 'center', 'right']).optional().describe("Text alignment")
-  }).optional()
+    fillColor: z.string().optional().nullish().describe("Fill color of the sticky note"),
+    textAlign: z.enum(['left', 'center', 'right']).optional().nullish().describe("Text alignment")
+  }).optional().nullish()
 });
 
 const cardSchema = z.object({
   type: z.literal('card'),
   data: z.object({
     title: z.string().describe("Title of the card"),
-    description: z.string().optional().describe("Description of the card"),
-    assigneeId: z.string().optional().describe("User ID of the assignee"),
-    dueDate: z.string().optional().describe("Due date in ISO 8601 format")
+    description: z.string().optional().nullish().describe("Description of the card"),
+    assigneeId: z.string().optional().nullish().describe("User ID of the assignee"),
+    dueDate: z.string().optional().nullish().describe("Due date in ISO 8601 format")
   }),
   position: z.object({
     x: z.number().describe("X coordinate"),
     y: z.number().describe("Y coordinate")
   }),
   style: z.object({
-    fillColor: z.string().optional().describe("Fill color"),
-    textColor: z.string().optional().describe("Text color")
-  }).optional()
+    fillColor: z.string().optional().nullish().describe("Fill color"),
+    textColor: z.string().optional().nullish().describe("Text color")
+  }).optional().nullish()
 });
 
 const textSchema = z.object({
@@ -66,10 +66,10 @@ const textSchema = z.object({
     y: z.number().describe("Y coordinate")
   }),
   style: z.object({
-    color: z.string().optional().describe("Text color (hex format, e.g. #000000)"),
-    fontSize: z.number().optional().describe("Font size"),
-    textAlign: z.enum(['left', 'center', 'right']).optional().describe("Text alignment")
-  }).optional()
+    color: z.string().optional().nullish().describe("Text color (hex format, e.g. #000000)"),
+    fontSize: z.number().optional().nullish().describe("Font size"),
+    textAlign: z.enum(['left', 'center', 'right']).optional().nullish().describe("Text alignment")
+  }).optional().nullish()
 });
 
 const itemSchema = z.discriminatedUnion('type', [

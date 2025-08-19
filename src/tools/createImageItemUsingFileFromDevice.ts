@@ -14,10 +14,10 @@ const createImageItemUsingFileFromDeviceTool: ToolSchema = {
     position: z.object({
       x: z.number().describe("X coordinate of the image"),
       y: z.number().describe("Y coordinate of the image"),
-      origin: z.string().optional().describe("Origin of the image (center, top-left, etc.)"),
-      relativeTo: z.string().optional().describe("Reference point (canvas_center, etc.)")
+      origin: z.string().optional().nullish().describe("Origin of the image (center, top-left, etc.)"),
+      relativeTo: z.string().optional().nullish().describe("Reference point (canvas_center, etc.)")
     }).describe("Position of the image on the board"),
-    title: z.string().optional().describe("Title of the image")
+    title: z.string().optional().nullish().describe("Title of the image")
   },
   fn: async ({ boardId, imageData, position, title }) => {
     try {

@@ -10,10 +10,10 @@ const updateItemPositionTool: ToolSchema = {
     boardId: z.string().describe("Unique identifier (ID) of the board that contains the item"),
     itemId: z.string().describe("Unique identifier (ID) of the item that you want to update"),
     position: z.object({
-      x: z.number().optional().describe("X coordinate of the item"),
-      y: z.number().optional().describe("Y coordinate of the item")
-    }).optional().describe("New position coordinates for the item"),
-    parentId: z.string().optional().describe("Unique identifier (ID) of the new parent item")
+      x: z.number().optional().nullish().describe("X coordinate of the item"),
+      y: z.number().optional().nullish().describe("Y coordinate of the item")
+    }).optional().nullish().describe("New position coordinates for the item"),
+    parentId: z.string().optional().nullish().describe("Unique identifier (ID) of the new parent item")
   },
   fn: async ({ boardId, itemId, position, parentId }) => {
     try {

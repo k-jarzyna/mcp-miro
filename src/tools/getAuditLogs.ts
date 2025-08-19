@@ -9,9 +9,9 @@ const getAuditLogsTool: ToolSchema = {
   args: {
     createdAfter: z.string().describe("Retrieve audit logs created after this date (ISO 8601 format)"),
     createdBefore: z.string().describe("Retrieve audit logs created before this date (ISO 8601 format)"),
-    cursor: z.string().optional().describe("Cursor for pagination"),
-    limit: z.number().optional().describe("Maximum number of results to return (default: 100)"),
-    sorting: z.enum(["ASC", "DESC"]).optional().describe("Sort order for results (default: ASC)")
+    cursor: z.string().optional().nullish().describe("Cursor for pagination"),
+    limit: z.number().optional().nullish().describe("Maximum number of results to return (default: 100)"),
+    sorting: z.enum(["ASC", "DESC"]).optional().nullish().describe("Sort order for results (default: ASC)")
   },
   fn: async ({ createdAfter, createdBefore, cursor, limit, sorting }) => {
     try {

@@ -14,6 +14,7 @@ import deleteBoardTool from './tools/deleteBoard.js';
 import copyBoardTool from './tools/copyBoard.js';
 import getSpecificBoardTool from './tools/getSpecificBoard.js';
 import getItemsOnBoardTool from './tools/getItemsOnBoard.js';
+import getItemsInFrameTool from './tools/getItemsInFrame.js';
 import getSpecificItemTool from './tools/getSpecificItem.js';
 import updateItemPositionTool from './tools/updateItemPosition.js';
 import deleteItemTool from './tools/deleteItem.js';
@@ -115,6 +116,7 @@ new ToolBootstrapper(server)
   .register(copyBoardTool)
   .register(getSpecificBoardTool)
   .register(getItemsOnBoardTool)
+  .register(getItemsInFrameTool)
   .register(getSpecificItemTool)
   .register(updateItemPositionTool)
   .register(deleteItemTool)

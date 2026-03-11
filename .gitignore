@@ -11,6 +11,7 @@ dist/
 # IDE files
 .idea/
 .vscode/
+.cursor/
 
 # Logs
 logs

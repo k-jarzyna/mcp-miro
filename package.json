@@ -20,6 +20,7 @@
     "@mirohq/miro-api": "^2.2.4",
     "@modelcontextprotocol/sdk": "^1.8.0",
     "dotenv": "^16.4.7",
+    "form-data": "^4.0.5",
     "zod": "^3.24.2"
   },
   "devDependencies": {
